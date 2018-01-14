@@ -38,6 +38,7 @@ def write_story(starting_chapter)
 	if @next_chapter.to_s.start_with?("//")
 	@next_chapter = "https:" + @next_chapter
 	end
+	@next_chapter.gsub! "http://", "https://"
 doc = Nokogiri::HTML(open(@next_chapter))
 #get
 	@chapter_title = doc.css('h1.entry-title').first #html formatted
